@@ -3,6 +3,8 @@ const router = express.Router();
 const pool = require('../connection');
 const bcrypt = require('bcrypt');
 
+
+
 router.post('/', async (req, res) => {
     const { username, password } = req.body;
   
@@ -12,6 +14,7 @@ router.post('/', async (req, res) => {
     }
   
     try {
+
       // Query the database to retrieve the user's record
       const query = 'SELECT * FROM users WHERE username = $1';
       const result = await pool.query(query, [username]);
@@ -28,11 +31,9 @@ router.post('/', async (req, res) => {
       if (!passwordMatch) {
         return res.status(401).json({ message: 'Invalid username or password.' });
       }
-  
-      // User authenticated
-      // Generate and send authentication session
+
       req.session.userId = user.id;
-      // Return success response
+      console.log("login/", req.session);
       return res.status(200).json({ message: 'Login successful.' });
     } catch (error) {
       console.error('Error logging in:', error);

@@ -4,9 +4,11 @@ const pool = require('../connection');
 const bcrypt = require('bcrypt');
 
 function requireAuth(req, res, next) {
+  console.log("notes/", req.session);
     if (!req.session.userId) {
         return res.status(401).json({ message: 'Unauthorized.' });
     }
+    
     next();
 }
 
@@ -27,9 +29,8 @@ async function getUserLogin(userId) {
 }  
 
 router.get('/', requireAuth, async (req, res) => {
-    const userId = req.session.userId;
-  
     // Connect to the PostgreSQL database
+    const userId = req.session.userId;
   
     try {
       // Execute a SQL query to select notes for the given user
