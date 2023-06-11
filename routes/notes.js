@@ -4,7 +4,7 @@ const pool = require('../connection');
 const bcrypt = require('bcrypt');
 
 function requireAuth(req, res, next) {
-  console.log("notes/", req.session);
+  // console.log("notes/", req.session);
     if (!req.session.userId) {
         return res.status(401).json({ message: 'Unauthorized.' });
     }
@@ -34,7 +34,7 @@ router.get('/', requireAuth, async (req, res) => {
   
     try {
       // Execute a SQL query to select notes for the given user
-      const query = 'SELECT * FROM notes WHERE user_id = $1';
+      const query = 'SELECT * FROM notes WHERE user_id = $1 order by created_at desc';
       const values = [userId];
       const result = await pool.query(query, values);
   
@@ -138,7 +138,8 @@ router.post('/new', requireAuth, async (req, res) => {
       // Check the result of the query
       if (result.rowCount === 1) {
         // Note successfully created
-        res.json({ message: 'Note created successfully' });
+        res.status(201).json({ message: 'Note created successfully' })
+        // res.json({ message: 'Note created successfully' });
       } else {
         // Failed to create note
         res.status(500).json({ error: 'Failed to create note' });

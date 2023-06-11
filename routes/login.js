@@ -33,7 +33,8 @@ router.post('/', async (req, res) => {
       }
 
       req.session.userId = user.id;
-      console.log("login/", req.session);
+      req.session.username = username;
+      // console.log("login/", req.session);
       return res.status(200).json({ message: 'Login successful.' });
     } catch (error) {
       console.error('Error logging in:', error);

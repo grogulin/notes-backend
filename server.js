@@ -37,3 +37,6 @@ app.use('/notes', notesRoute);
 
 const logoutRoute = require('./routes/logout');
 app.use('/logout', logoutRoute);
+
+const getSessionInfo = require('./routes/getSessionInfo');
+app.use('/session', getSessionInfo);
