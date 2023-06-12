@@ -1,13 +1,11 @@
 const { Pool } = require('pg');
 
 const pool = new Pool({
-    host: '152.67.72.136', // Replace with the appropriate host if necessary
-    port: 5432, // Replace with the appropriate port if necessary
-    database: 'notesapp_test', // Replace with your database name
-    user: 'user001_dev', // Replace with your database username
-    password: 'QDLVy3aD' // Replace with your database password
+    host: process.env.DB_HOST, // Read host from environment variable or use a default value
+    port: process.env.DB_PORT, // Read port from environment variable or use a default value
+    database: process.env.DB_NAME, // Read database name from environment variable or use a default value
+    user: process.env.DB_USER, // Read database username from environment variable or use a default value
+    password: process.env.DB_PASSWORD // Read database password from environment variable or use a default value
 });
-
-
 
 module.exports = pool;

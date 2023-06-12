@@ -1,9 +1,13 @@
+require('dotenv').config();
+
 const express = require('express');
 const pool = require('./connection');
 // const session = require('express-session'); 
 const session = require('./session');
 const cors = require('cors')
 const app = express();
+
+const port = process.env.PORT || '3001';
 
 // Middleware to parse JSON bodies
 app.use(express.json());
@@ -21,7 +25,7 @@ app.get('/', (req, res) => {
 });
 
 // Start the server
-app.listen(3000, () => {
+app.listen(port, () => {
     console.log('Server is running on port 3000');
 });
 
