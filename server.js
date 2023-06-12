@@ -7,7 +7,7 @@ const session = require('./session');
 const cors = require('cors')
 const app = express();
 
-const port = process.env.PORT || '3001';
+const port = process.env.PORT || '3005';
 
 // Middleware to parse JSON bodies
 app.use(express.json());
