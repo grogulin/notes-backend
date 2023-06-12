@@ -26,7 +26,7 @@ app.get('/', (req, res) => {
 
 // Start the server
 app.listen(port, () => {
-    console.log('Server is running on port 3000');
+    console.log(`Server is running on port ${port}`);
 });
 
 const registrationRoute = require('./routes/registration');
