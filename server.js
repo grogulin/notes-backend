@@ -8,7 +8,7 @@ const cors = require('cors')
 const app = express();
 
 const port = process.env.PORT || '3005';
-console.log("PORT env var: ,", process.env.env);
+console.log("ENV VARS", process.env.PORT);
 
 // Middleware to parse JSON bodies
 app.use(express.json());
