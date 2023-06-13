@@ -34,7 +34,9 @@ router.post('/', async (req, res) => {
 
       req.session.userId = user.id;
       req.session.username = username;
-      // console.log("login/", req.session);
+      var formattedTime = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+
+      console.log(formattedTime, ", login/, ", req.session);
       return res.status(200).json({ message: 'Login successful.' });
     } catch (error) {
       console.error('Error logging in:', error);
