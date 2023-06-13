@@ -34,9 +34,16 @@ router.post('/', async (req, res) => {
 
       req.session.userId = user.id;
       req.session.username = username;
+      res.cookie('sessionId', sessionId, {
+        maxAge: 7 * 24 * 60 * 60 * 1000, // Set the cookie expiration time (7 days in this example)
+        secure: false, // Set it to `true` if using HTTPS
+        httpOnly: true, // The cookie cannot be accessed via JavaScript
+      });
+      
       var formattedTime = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
 
       console.log(formattedTime, ", login/, ", req.session);
+      console.log(formattedTime, ", login/, ", res.cookie);
       return res.status(200).json({ message: 'Login successful.' });
     } catch (error) {
       console.error('Error logging in:', error);
