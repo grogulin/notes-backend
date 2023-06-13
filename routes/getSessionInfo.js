@@ -9,7 +9,7 @@ router.get('/', (req, res) => {
   //   res.sendStatus(401);
   // }
 
-  const sessionId = req.cookies.sessionId; // Retrieve the session ID from cookies
+  const sessionId = req.headers['x-session-id']; // Retrieve the session ID from cookies
   console.log("Session ID:", sessionId);
 
   // Query the sessions table to fetch the session data
