@@ -16,6 +16,13 @@ app.use(cors({
   origin: ['http://localhost:3001', 'http://localhost:80', 'http://localhost:7001'],
   credentials: true
 }));
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', 'http://152.67.72.136');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  res.setHeader('Access-Control-Allow-Credentials', true);
+  next();
+});
 
 
 
