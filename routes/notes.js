@@ -4,6 +4,7 @@ const pool = require('../connection');
 const bcrypt = require('bcrypt');
 
 function requireAuth(req, res, next) {
+  console.log("RequireAuth, ", req.session)
   // console.log("notes/", req.session);
     if (!req.session.userId) {
         return res.status(401).json({ message: 'Unauthorized.' });

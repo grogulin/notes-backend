@@ -2,13 +2,11 @@ require('dotenv').config();
 
 const express = require('express');
 const pool = require('./connection');
-// const session = require('express-session'); 
 const session = require('./session');
 const cors = require('cors')
 const app = express();
 
 const port = process.env.PORT || 3001;
-console.log("ENV VARS", process.env);
 
 // Middleware to parse JSON bodies
 app.use(express.json());
