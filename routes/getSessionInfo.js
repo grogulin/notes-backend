@@ -10,7 +10,7 @@ router.get('/', (req, res) => {
   // }
 
   const sessionId = req.cookies.sessionId; // Retrieve the session ID from cookies
-  console.log(sessionId);
+  console.log("Session ID:", sessionId);
 
   // Query the sessions table to fetch the session data
   // pool.query('SELECT sess FROM sessions WHERE sid = $1', [sessionId], (error, result) => {
