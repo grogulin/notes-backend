@@ -17,7 +17,8 @@ app.use(cors({
            'http://localhost:80',
            'http://localhost:7001',
            'http://152.67.72.136',
-           'http://www.freedevdom.mooo.com'],
+           'http://www.freedevdom.mooo.com',
+           'http://freedevdom.mooo.com'],
   credentials: true
 }));
 app.use((req, res, next) => {
