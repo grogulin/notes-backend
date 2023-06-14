@@ -12,17 +12,20 @@ const port = process.env.PORT || 3001;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(session);
+
+const allowedOrigins = ['http://localhost:3001',
+  'http://localhost:80',
+  'http://localhost:7001',
+  'http://152.67.72.136',
+  'http://www.freedevdom.mooo.com',
+  'http://freedevdom.mooo.com'];
+
 app.use(cors({
-  origin: ['http://localhost:3001',
-           'http://localhost:80',
-           'http://localhost:7001',
-           'http://152.67.72.136',
-           'http://www.freedevdom.mooo.com',
-           'http://freedevdom.mooo.com'],
+  origin: allowedOrigins,
   credentials: true
 }));
 app.use((req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', 'http://152.67.72.136');
+  res.setHeader('Access-Control-Allow-Origin', allowedOrigins);
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
   res.setHeader('Access-Control-Allow-Credentials', true);
