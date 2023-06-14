@@ -13,7 +13,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(session);
 app.use(cors({
-  origin: ['http://localhost:3001', 'http://localhost:80', 'http://localhost:7001', 'http://152.67.72.136'],
+  origin: ['http://localhost:3001',
+           'http://localhost:80',
+           'http://localhost:7001',
+           'http://152.67.72.136',
+           'http://www.freedevdom.mooo.com'],
   credentials: true
 }));
 app.use((req, res, next) => {
