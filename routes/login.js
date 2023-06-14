@@ -34,11 +34,11 @@ router.post('/', async (req, res) => {
 
       req.session.userId = user.id;
       req.session.username = username;
-      res.cookie('sessionId', sessionId, {
-        maxAge: 7 * 24 * 60 * 60 * 1000, // Set the cookie expiration time (7 days in this example)
-        secure: false, // Set it to `true` if using HTTPS
-        httpOnly: true, // The cookie cannot be accessed via JavaScript
-      });
+      // res.cookie('sessionId', sessionId, {
+      //   maxAge: 7 * 24 * 60 * 60 * 1000, // Set the cookie expiration time (7 days in this example)
+      //   secure: false, // Set it to `true` if using HTTPS
+      //   httpOnly: true, // The cookie cannot be accessed via JavaScript
+      // });
       
       var formattedTime = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
 
