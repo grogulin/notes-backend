@@ -14,7 +14,6 @@ const sessionConfig = {
     maxAge: 7 * 24 * 60 * 60 * 1000, // Set the cookie expiration time (7 days in this example)
     secure: false, // Set it to `true` if using HTTPS
     httpOnly: true, // The cookie cannot be accessed via JavaScript
-    domain: '.freedevdom.mooo.com'
   }
 };
 
