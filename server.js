@@ -35,7 +35,8 @@ const allowedOrigins = [
   'http://localhost:3001',
   'http://localhost:80',
   'http://localhost:7001',
-  'http://152.67.72.136'
+  'http://152.67.72.136',
+  'http://freedevdom.mooo.com'
 ];
 
 app.use(cors({

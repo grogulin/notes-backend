@@ -1,21 +1,12 @@
 pipeline {
   agent any
   
-
     stages {
         stage('Checkout') {
             steps {
                 git branch: 'main',
                     credentialsId: 'git_credentials',
                     url: 'https://github.com/grogulin/notes-backend.git'
-            }
-        }
-    
-        stage('Build') {
-            steps {
-                // Build your backend code
-                // Replace with the build commands or script for your specific project
-                sh 'npm install' // Example command for a Node.js project
             }
         }
      
@@ -43,7 +34,7 @@ pipeline {
                     }
         
                     sshagent(['oracle']) {
-                        sh 'ssh -o StrictHostKeyChecking=no ubuntu@152.67.72.136 "cd apps/notes-backend/ && ls -la && npm install --production"'
+                        sh 'ssh -o StrictHostKeyChecking=no ubuntu@152.67.72.136 "cd apps/notes-backend/ && npm install --production"'
                         sh 'ssh -o StrictHostKeyChecking=no ubuntu@152.67.72.136 "cd apps/notes-backend/ && pm2 start server.js --name notes-backend"'
                     }
                 }
