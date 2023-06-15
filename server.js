@@ -13,23 +13,35 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(session);
 
-const allowedOrigins = ['http://localhost:3001',
+// const allowedOrigins = ['http://localhost:3001',
+//   'http://localhost:80',
+//   'http://localhost:7001',
+//   'http://152.67.72.136'];
+
+// app.use(cors({
+//   origin: allowedOrigins,
+//   credentials: true
+// }));
+
+// app.use((req, res, next) => {
+//   res.setHeader('Access-Control-Allow-Origin', 'http://152.67.72.136');
+//   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+//   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+//   res.setHeader('Access-Control-Allow-Credentials', true);
+//   next();
+// });
+
+const allowedOrigins = [
+  'http://localhost:3001',
   'http://localhost:80',
   'http://localhost:7001',
-  'http://152.67.72.136'];
+  'http://152.67.72.136'
+];
 
 app.use(cors({
   origin: allowedOrigins,
   credentials: true
 }));
-
-app.use((req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', 'http://152.67.72.136');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-  res.setHeader('Access-Control-Allow-Credentials', true);
-  next();
-});
 
 
 
