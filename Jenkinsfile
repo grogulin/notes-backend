@@ -28,7 +28,7 @@ pipeline {
                     }
                     
                     sshagent(['oracle']) {
-                        sh 'ssh -o StrictHostKeyChecking=no ubuntu@152.67.72.136 "pm2 stop notes-backend && rm -rf apps/notes-backend/*"'
+                        sh 'ssh -o StrictHostKeyChecking=no ubuntu@152.67.72.136 "pm2 stop notes-backend || true && rm -rf apps/notes-backend/*"'
                         sh 'scp -o StrictHostKeyChecking=no -r ./* ubuntu@152.67.72.136:apps/notes-backend/'
                         sh 'scp -o StrictHostKeyChecking=no -r ./.env ubuntu@152.67.72.136:apps/notes-backend/'
                     }
