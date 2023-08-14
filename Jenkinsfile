@@ -15,16 +15,18 @@ pipeline {
                 withCredentials([usernamePassword(credentialsId: 'postgresql_prod', usernameVariable: 'DB_USER', passwordVariable: 'DB_PASSWORD')]) {
                     
                     script {
-                        def envContent = """
+                        def envContent = '''
                             PORT=7000
                             DB_HOST=152.67.72.136
                             DB_PORT=5432
                             DB_NAME=notesapp_prod
                             DB_USER=$DB_USER
                             DB_PASSWORD=$DB_PASSWORD
-                        """
+                        '''
                         
-                        sh "echo '${envContent}' > .env"
+                        sh 'echo ${envContent} > .env'
+
+                        
                     }
                     
                     sshagent(['oracle']) {
