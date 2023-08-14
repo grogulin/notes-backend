@@ -13,8 +13,6 @@ pipeline {
         stage('Deploy') {
             environment {
                 CREDENTIALS = credentials('postgresql_prod')
-                DB_USER = CREDENTIALS_USR
-                DB_PASSWORD = CREDENTIALS_PSW
             }
             steps {
                 withCredentials([usernamePassword(credentialsId: 'postgresql_prod', usernameVariable: 'DB_USERR', passwordVariable: 'DB_PASSWORDD')]) {
