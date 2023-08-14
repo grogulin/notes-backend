@@ -26,8 +26,8 @@ pipeline {
                             DB_HOST=152.67.72.136
                             DB_PORT=5432
                             DB_NAME=notesapp_prod
-                            DB_USER=${env.DB_USER}
-                            DB_PASSWORD=${env.DB_PASSWORD}
+                            DB_USER=${env.CREDENTIALS_USR}
+                            DB_PASSWORD=${env.CREDENTIALS_PSW}
                         """
                         
                         sh "echo '${envContent}' > .env"
