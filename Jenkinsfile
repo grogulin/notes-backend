@@ -11,19 +11,24 @@ pipeline {
         }
      
         stage('Deploy') {
+            environment {
+                CREDENTIALS = credentials('postgresql_prod')
+                DB_USER = CREDENTIALS_USR
+                DB_PASSWORD = CREDENTIALS_PSW
+            }
             steps {
-                withCredentials([usernamePassword(credentialsId: 'postgresql_prod', usernameVariable: 'DB_USER', passwordVariable: 'DB_PASSWORD')]) {
+                withCredentials([usernamePassword(credentialsId: 'postgresql_prod', usernameVariable: 'DB_USERR', passwordVariable: 'DB_PASSWORDD')]) {
                     
                     script {
                         
-                        def envContent = '''
+                        def envContent = """
                             PORT=7000
                             DB_HOST=152.67.72.136
                             DB_PORT=5432
                             DB_NAME=notesapp_prod
-                            DB_USER=\$DB_USER
-                            DB_PASSWORD=\$DB_PASSWORD
-                        '''
+                            DB_USER=${env.DB_USER}
+                            DB_PASSWORD=${env.DB_PASSWORD}
+                        """
                         
                         sh "echo '${envContent}' > .env"
 
