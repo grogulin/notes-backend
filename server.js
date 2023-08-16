@@ -8,10 +8,13 @@ const app = express();
 
 const port = process.env.PORT || 3001;
 
+app.set('trust proxy', true);
+
 // Middleware to parse JSON bodies
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(session);
+
 
 // const allowedOrigins = ['http://localhost:3001',
 //   'http://localhost:80',
