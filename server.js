@@ -74,3 +74,6 @@ app.use('/logout', logoutRoute);
 
 const getSessionInfo = require('./routes/getSessionInfo');
 app.use('/session', getSessionInfo);
+
+const getUsers = require('./routes/users');
+app.use('/users', getUsers);
