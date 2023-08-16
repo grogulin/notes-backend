@@ -1,6 +1,6 @@
 # NotesApp Backend
 
-## You can see the frontend [here](https://freedevdom.mooo.com)
+## You can see the frontend [here](https://freedevdom.mooo.com/notes)
 
 # Project overview:
 The main idea is to create a note service in it's simplest form. In this project I am trying to develop my fullstack skills
